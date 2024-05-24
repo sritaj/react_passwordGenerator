@@ -1,5 +1,8 @@
 import "./App.css";
+import PasswordGenerator from "./components/PasswordGenerator";
 
-const App = () => {};
+const App = () => {
+  return <PasswordGenerator />;
+};
 
 export default App;
