@@ -1,4 +1,4 @@
-const Slider = () => {
+const Slider = ({ range }) => {
   return (
     <div className="pt-4">
       <label htmlFor="range" className="text-xs font-bold font-serif">
@@ -9,6 +9,7 @@ const Slider = () => {
           id="slider_range"
           className="w-6 bg-slate-400 border-gray-300 text-center mr-2 text-sm text-orange-700"
           readOnly={true}
+          value={range}
         ></input>
         <input
           id="range"
@@ -16,8 +17,8 @@ const Slider = () => {
           minLength={8}
           maxLength={64}
           step={1}
-          //   value={8}
-          onChange={() => console.log("changing")}
+          value={range}
+          onChange={() => console.log(range)}
           className="w-full rounded-lg cursor-pointer bg-gray-100"
         ></input>
       </div>

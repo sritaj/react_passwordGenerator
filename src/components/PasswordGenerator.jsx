@@ -60,7 +60,7 @@ const PasswordGenerator = () => {
             />
           </div>
         </div>
-        <Slider />
+        <Slider range={range} />
         <Reset />
       </div>
     </div>
