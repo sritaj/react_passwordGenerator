@@ -7,7 +7,7 @@ const Slider = ({ range, updateSlider }) => {
       <div className="flex pt-2">
         <input
           id="slider_range"
-          className="w-6 bg-slate-400 border-gray-300 text-center mr-2 text-sm text-orange-700"
+          className="w-6 bg-slate-300 border-gray-300 text-center mr-2 text-sm text-black"
           readOnly={true}
           value={range}
         ></input>
