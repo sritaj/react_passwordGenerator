@@ -13,6 +13,10 @@ const PasswordGenerator = () => {
   const [symbols, setSymbols] = useState(false);
   const [numbers, setNumbers] = useState(false);
 
+  const updateSlider = (e) => {
+    setRange(e.target.value);
+  };
+
   return (
     <div className="w-full h-screen bg-gradient-to-r from-cyan-50 to-cyan-100 flex justify-center items-center">
       <div className="w-3/5 h-fit rounded-2xl border-2 border-white shadow p-12 bg-gradient-to-r from-blue-50 to-blue-100">
@@ -60,7 +64,7 @@ const PasswordGenerator = () => {
             />
           </div>
         </div>
-        <Slider range={range} />
+        <Slider range={range} updateSlider={updateSlider} />
         <Reset />
       </div>
     </div>
