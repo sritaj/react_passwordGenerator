@@ -7,7 +7,7 @@ import Reset from "./Reset";
 const PasswordGenerator = () => {
   return (
     <div className="w-full h-screen bg-gradient-to-r from-cyan-50 to-cyan-100 flex justify-center items-center">
-      <div className="w-5/6 h-fit rounded-2xl border-2 border-white shadow p-12 bg-gradient-to-r from-blue-50 to-blue-100">
+      <div className="w-3/5 h-fit rounded-2xl border-2 border-white shadow p-12 bg-gradient-to-r from-blue-50 to-blue-100">
         <h1 className="text-center font-bold text-blue-700 font-mono">
           Password Generator
         </h1>
