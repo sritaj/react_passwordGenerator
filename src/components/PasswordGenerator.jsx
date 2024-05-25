@@ -9,9 +9,9 @@ const PasswordGenerator = () => {
   const [password, setPassword] = useState("");
   const [range, setRange] = useState(8);
   const [uppercase, setUppercase] = useState(true);
-  const [lowercase, setLowercase] = useState(false);
-  const [symbols, setSymbols] = useState(false);
-  const [numbers, setNumbers] = useState(false);
+  const [lowercase, setLowercase] = useState(true);
+  const [symbols, setSymbols] = useState(true);
+  const [numbers, setNumbers] = useState(true);
 
   const updateSlider = (e) => {
     setRange(e.target.value);
