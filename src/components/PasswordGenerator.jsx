@@ -38,10 +38,26 @@ const PasswordGenerator = () => {
           <label className="text-xs font-bold font-serif">Settings</label>
 
           <div className="flex flex-row">
-            <SettingsMenu id="id" checkboxName="Uppercase" />
-            <SettingsMenu id="lowercase" checkboxName="Lowercase" />
-            <SettingsMenu id="symbols" checkboxName="Symbols" />
-            <SettingsMenu id="numbers" checkboxName="Numbers" />
+            <SettingsMenu
+              id="id"
+              checkboxName="Uppercase"
+              defaultChecked={uppercase}
+            />
+            <SettingsMenu
+              id="lowercase"
+              checkboxName="Lowercase"
+              defaultChecked={lowercase}
+            />
+            <SettingsMenu
+              id="symbols"
+              checkboxName="Symbols"
+              defaultChecked={symbols}
+            />
+            <SettingsMenu
+              id="numbers"
+              checkboxName="Numbers"
+              defaultChecked={numbers}
+            />
           </div>
         </div>
         <Slider />
