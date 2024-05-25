@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy, faLock } from "@fortawesome/free-solid-svg-icons";
+import SettingsMenu from "./SettingsMenu";
 
 const PasswordGenerator = () => {
   return (
@@ -21,6 +22,16 @@ const PasswordGenerator = () => {
           ></input>
           <div className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
             <FontAwesomeIcon icon={faCopy} style={{ color: "#dbdbdb" }} />
+          </div>
+        </div>
+        <div className="pt-4">
+          <label className="text-xs font-bold font-serif">Settings</label>
+
+          <div className="flex flex-row">
+            <SettingsMenu id="id" checkboxName="Uppercase" />
+            <SettingsMenu id="lowercase" checkboxName="Lowercase" />
+            <SettingsMenu id="symbols" checkboxName="Symbols" />
+            <SettingsMenu id="numbers" checkboxName="Numbers" />
           </div>
         </div>
       </div>
