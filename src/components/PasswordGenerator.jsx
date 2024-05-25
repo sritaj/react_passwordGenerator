@@ -54,7 +54,7 @@ const PasswordGenerator = () => {
     if (symbols) charSet += allSpecialCharacters;
 
     if (charSet === "") {
-      setPassword("ccsetgtgtgt");
+      setPassword("");
       return;
     }
 
