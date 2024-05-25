@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import PasswordDisplay from "./PasswordDisplay";
 
 const PasswordGenerator = () => {
-  const [password, setPassword] = useState("dummy");
+  const [password, setPassword] = useState("");
   const [range, setRange] = useState(8);
   const [uppercase, setUppercase] = useState(true);
   const [lowercase, setLowercase] = useState(true);
@@ -40,6 +40,35 @@ const PasswordGenerator = () => {
     setNumbers(true);
     setRange(8);
   };
+
+  const passwordLogic = () => {
+    const allUppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const allLowercase = "abcdefghijklmnopqrstuvwxyz";
+    const allNumbers = "0123456789";
+    const allSpecialCharacters = "!@#$%^&*()_+-={}[]|\\:;\"'<>,.?/~`=";
+
+    let charSet = "";
+    if (uppercase) charSet += allUppercase;
+    if (lowercase) charSet += allLowercase;
+    if (numbers) charSet += allNumbers;
+    if (symbols) charSet += allSpecialCharacters;
+
+    if (charSet === "") {
+      setPassword("ccsetgtgtgt");
+      return;
+    }
+
+    let password = "";
+    for (let i = 0; i < range; i++) {
+      const randomIndex = Math.floor(Math.random() * charSet.length);
+      password += charSet[randomIndex];
+    }
+    setPassword(password);
+  };
+
+  useEffect(() => {
+    passwordLogic();
+  }, [uppercase, lowercase, symbols, numbers, range]);
 
   return (
     <div className="w-full h-screen bg-gradient-to-r from-cyan-50 to-cyan-100 flex justify-center items-center">
