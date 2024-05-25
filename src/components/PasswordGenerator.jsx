@@ -1,7 +1,7 @@
 import SettingsMenu from "./SettingsMenu";
 import Slider from "./Slider";
 import Reset from "./Reset";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PasswordDisplay from "./PasswordDisplay";
 
 const PasswordGenerator = () => {
@@ -11,6 +11,7 @@ const PasswordGenerator = () => {
   const [lowercase, setLowercase] = useState(true);
   const [symbols, setSymbols] = useState(true);
   const [numbers, setNumbers] = useState(true);
+  const [copied, setCopied] = useState(false);
 
   const updateSlider = (e) => {
     setRange(e.target.value);
@@ -39,6 +40,7 @@ const PasswordGenerator = () => {
     setSymbols(true);
     setNumbers(true);
     setRange(8);
+    setCopied(false);
   };
 
   const passwordLogic = () => {
@@ -70,6 +72,14 @@ const PasswordGenerator = () => {
     passwordLogic();
   }, [uppercase, lowercase, symbols, numbers, range]);
 
+  const passwordReference = useRef(null);
+
+  const copyPassword = () => {
+    window.navigator.clipboard.writeText(password);
+    passwordReference.current?.select();
+    setCopied(true);
+  };
+
   return (
     <div className="w-full h-screen bg-gradient-to-r from-cyan-50 to-cyan-100 flex justify-center items-center">
       <div className="w-3/5 h-fit rounded-2xl border-2 border-white shadow p-12 bg-gradient-to-r from-blue-50 to-blue-100">
@@ -79,7 +89,11 @@ const PasswordGenerator = () => {
         <p className="text-xs text-center py-4 font-light font-mono">
           Generate a secure and random password
         </p>
-        <PasswordDisplay password={password} />
+        <PasswordDisplay
+          password={password}
+          copyPassword={copyPassword}
+          copied={copied}
+        />
         <div className="pt-4">
           <label className="text-xs font-bold font-serif">Settings</label>
 
