@@ -3,6 +3,7 @@ import Slider from "./Slider";
 import Reset from "./Reset";
 import { useEffect, useRef, useState } from "react";
 import PasswordDisplay from "./PasswordDisplay";
+import backgroundImage from "../assets/background_wallpaper.jpg";
 
 const PasswordGenerator = () => {
   const [password, setPassword] = useState("");
@@ -31,16 +32,6 @@ const PasswordGenerator = () => {
 
   const setNumbersCheckboxStatus = (e) => {
     setNumbers(!numbers);
-  };
-
-  const reset = () => {
-    setPassword("");
-    setUppercase(true);
-    setLowercase(true);
-    setSymbols(true);
-    setNumbers(true);
-    setRange(8);
-    setCopied(false);
   };
 
   const passwordLogic = () => {
@@ -80,8 +71,21 @@ const PasswordGenerator = () => {
     setCopied(true);
   };
 
+  const reset = () => {
+    setPassword("");
+    setUppercase(true);
+    setLowercase(true);
+    setSymbols(true);
+    setNumbers(true);
+    setRange(8);
+    setCopied(false);
+  };
+
   return (
-    <div className="w-full h-screen bg-gradient-to-r from-cyan-50 to-cyan-100 flex justify-center items-center">
+    <div
+      className="w-full h-screen bg-gradient-to-r from-cyan-50 to-cyan-100 flex justify-center items-center"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
       <div className="w-3/5 h-fit rounded-2xl border-2 border-white shadow p-12 bg-gradient-to-r from-blue-50 to-blue-100">
         <h1 className="text-center font-bold text-blue-700 font-mono">
           Password Generator
