@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import PasswordDisplay from "./PasswordDisplay";
 
 const PasswordGenerator = () => {
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("dummy");
   const [range, setRange] = useState(8);
   const [uppercase, setUppercase] = useState(true);
   const [lowercase, setLowercase] = useState(true);
@@ -14,6 +14,31 @@ const PasswordGenerator = () => {
 
   const updateSlider = (e) => {
     setRange(e.target.value);
+  };
+
+  const setUppercaseCheckboxStatus = () => {
+    setUppercase(!uppercase);
+  };
+
+  const setLowercaseCheckboxStatus = () => {
+    setLowercase(!lowercase);
+  };
+
+  const setSymbolsCheckboxStatus = () => {
+    setSymbols(!symbols);
+  };
+
+  const setNumbersCheckboxStatus = (e) => {
+    setNumbers(!numbers);
+  };
+
+  const reset = () => {
+    setPassword("");
+    setUppercase(true);
+    setLowercase(true);
+    setSymbols(true);
+    setNumbers(true);
+    setRange(8);
   };
 
   return (
@@ -25,7 +50,7 @@ const PasswordGenerator = () => {
         <p className="text-xs text-center py-4 font-light font-mono">
           Generate a secure and random password
         </p>
-        <PasswordDisplay />
+        <PasswordDisplay password={password} />
         <div className="pt-4">
           <label className="text-xs font-bold font-serif">Settings</label>
 
@@ -34,26 +59,30 @@ const PasswordGenerator = () => {
               id="id"
               checkboxName="Uppercase"
               defaultChecked={uppercase}
+              setCheckboxStatus={setUppercaseCheckboxStatus}
             />
             <SettingsMenu
               id="lowercase"
               checkboxName="Lowercase"
               defaultChecked={lowercase}
+              setCheckboxStatus={setLowercaseCheckboxStatus}
             />
             <SettingsMenu
               id="symbols"
               checkboxName="Symbols"
               defaultChecked={symbols}
+              setCheckboxStatus={setSymbolsCheckboxStatus}
             />
             <SettingsMenu
               id="numbers"
               checkboxName="Numbers"
               defaultChecked={numbers}
+              setCheckboxStatus={setNumbersCheckboxStatus}
             />
           </div>
         </div>
         <Slider range={range} updateSlider={updateSlider} />
-        <Reset />
+        <Reset reset={reset} />
       </div>
     </div>
   );
