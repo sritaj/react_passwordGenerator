@@ -3,8 +3,16 @@ import { faCopy, faLock } from "@fortawesome/free-solid-svg-icons";
 import SettingsMenu from "./SettingsMenu";
 import Slider from "./Slider";
 import Reset from "./Reset";
+import { useEffect, useState } from "react";
 
 const PasswordGenerator = () => {
+  const [password, setPassword] = useState("");
+  const [range, setRange] = useState(8);
+  const [uppercase, setUppercase] = useState(true);
+  const [lowercase, setLowercase] = useState(false);
+  const [symbols, setSymbols] = useState(false);
+  const [numbers, setNumbers] = useState(false);
+
   return (
     <div className="w-full h-screen bg-gradient-to-r from-cyan-50 to-cyan-100 flex justify-center items-center">
       <div className="w-3/5 h-fit rounded-2xl border-2 border-white shadow p-12 bg-gradient-to-r from-blue-50 to-blue-100">
@@ -20,7 +28,7 @@ const PasswordGenerator = () => {
           </div>
           <input
             className="text-sm rounded-2xl border border-gray-300 text-gray-900 h-8 w-full align-middle text-center ps-8 pe-8"
-            readOnly={false}
+            readOnly={true}
           ></input>
           <div className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
             <FontAwesomeIcon icon={faCopy} style={{ color: "#dbdbdb" }} />
