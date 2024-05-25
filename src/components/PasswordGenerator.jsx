@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy, faLock } from "@fortawesome/free-solid-svg-icons";
 import SettingsMenu from "./SettingsMenu";
 import Slider from "./Slider";
+import Reset from "./Reset";
 
 const PasswordGenerator = () => {
   return (
@@ -36,6 +37,7 @@ const PasswordGenerator = () => {
           </div>
         </div>
         <Slider />
+        <Reset />
       </div>
     </div>
   );
